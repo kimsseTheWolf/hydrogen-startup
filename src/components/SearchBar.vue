@@ -15,6 +15,7 @@ const inputModel = defineModel("value", {
 const activeMode = ref("none");
 
 function handleInput() {
+    // special commands
     if (inputModel.value.toLowerCase() == "translate: ") {
         activeMode.value = "translate";
         inputModel.value = "";
@@ -25,6 +26,19 @@ function handleInput() {
     }
     else if (inputModel.value.toLowerCase() == "wiki: ") {
         activeMode.value = "wiki";
+        inputModel.value = "";
+    }
+    // search engine commands
+    else if (inputModel.value.toLowerCase() == "google: ") {
+        searchEngine.value = "Google";
+        inputModel.value = "";
+    }
+    else if (inputModel.value.toLowerCase() == "bing: ") {
+        searchEngine.value = "Bing";
+        inputModel.value = "";
+    }
+    else if (inputModel.value.toLowerCase() == "duckduckgo: ") {
+        searchEngine.value = "DuckDuckGo";
         inputModel.value = "";
     }
     else if (inputModel.value.toLowerCase() == "todo: ") {
